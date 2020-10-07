@@ -1,6 +1,6 @@
 # Webpack Frontend Starterkit
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+[![Dependabot badge](https://flat.badgen.net/dependabot/miguelRivero/webpack-starter?icon=dependabot)](https://dependabot.com/)
 
 A lightweight foundation for your next webpack based frontend project.
 
