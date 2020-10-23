@@ -1,6 +1,139 @@
-$body-color: slateblue;
+.banner-prospects {
+  height: 128px;
+  max-width: 996px;
+  background-color: #f6f4f2;
+  margin: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 
-body {
-  color: $body-color;
-  font-family: sans-serif;
+  .button-secondary {
+    width: 25%;
+    margin: auto;
+    display: inline-block;
+    padding-top: 0;
+
+    .button-secondary-link {
+      background-color: #8f7247;
+      border: 1px solid #8f7247;
+      padding: 0.8em;
+    }
+  }
+}
+
+.banner-prospects-image {
+  height: 100%;
+  width: 20%;
+  display: block;
+  text-align: center;
+  padding-top: 16px;
+}
+
+.text {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.banner-prospects-text {
+  color: #8f7247;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 24px;
+  width: 60%;
+  margin: auto;
+  padding: 0;
+}
+
+.banner-prospects-text h2 {
+  color: #8f7247;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 21px;
+  font-weight: 800;
+}
+
+.banner-prospects-text p {
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.button-secondary-link {
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2em;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  text-decoration: none;
+  min-width: 200px;
+}
+
+@media screen and (max-width: 360px) {
+  .banner-prospects {
+    //padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    .button-secondary {
+      padding-top: 1rem;
+    }
+  }
+  .banner-prospects-image {
+    width: 100%;
+  }
+  .button-secondary {
+    padding-bottom: 16px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .banner-prospects {
+    padding: 16px 10px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .banner-prospects {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner-prospects {
+    height: 100%;
+  }
+  .banner-prospects-image {
+    width: 30%;
+  }
+  .text {
+    width: 70%;
+    display: block;
+  }
+  .banner-prospects-text {
+    width: 100%;
+  }
+  .banner-prospects-text p {
+    padding-bottom: 9px;
+  }
+  .button-secondary {
+    width: 100%;
+  }
+  .button-secondary-link {
+    width: 100%;
+  }
 }
