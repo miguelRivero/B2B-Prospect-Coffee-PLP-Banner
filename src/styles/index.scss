@@ -1,4 +1,4 @@
-.banner-prospects {
+.TopBanner_CoffeePLP {
   height: 128px;
   max-width: 996px;
   background-color: #f6f4f2;
@@ -7,64 +7,66 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
-  .button-secondary {
-    width: 25%;
-    margin: auto;
-    display: inline-block;
-    padding-top: 0;
-
-    .button-secondary-link {
-      background-color: #8f7247;
-      border: 1px solid #8f7247;
-      padding: 0.8em;
-    }
-  }
+}
+.TopBanner_CoffeePLP__cta {
+  width: 25%;
+  margin: auto;
+  display: inline-block;
+  padding-top: 0;
+}
+.TopBanner_CoffeePLP__cta-link {
+  background-color: #8f7247;
+  border: 1px solid #8f7247;
+  padding: 0.8em;
 }
 
-.banner-prospects-image {
-  height: 100%;
-  width: 20%;
-  display: block;
-  text-align: center;
-  padding-top: 16px;
-}
-
-.text {
+.TopBanner_CoffeePLP__content {
   width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-right: 1rem;
 }
 
-.banner-prospects-text {
+.TopBanner_CoffeePLP__image {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 125px;
+  }
+}
+
+.TopBanner_CoffeePLP__text {
   color: #8f7247;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: 2px;
-  line-height: 24px;
-  width: 60%;
+  line-height: 1.5rem;
+  width: 65%;
   margin: auto;
   padding: 0;
 }
 
-.banner-prospects-text h2 {
+.TopBanner_CoffeePLP__text h2 {
   color: #8f7247;
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: 2px;
-  line-height: 21px;
+  line-height: 1.3125rem;
   font-weight: 800;
 }
 
-.banner-prospects-text p {
+.TopBanner_CoffeePLP__text p {
   color: #000;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
-  line-height: 20px;
+  line-height: 1.5;
 }
 
-.button-secondary-link {
+.TopBanner_CoffeePLP__cta-link {
   color: #fff;
   font-family: inherit;
   font-size: 14px;
@@ -85,55 +87,65 @@
 }
 
 @media screen and (max-width: 360px) {
-  .banner-prospects {
+  .TopBanner_CoffeePLP {
     //padding: 10px;
     flex-direction: column;
     align-items: center;
-    .button-secondary {
-      padding-top: 1rem;
-    }
   }
-  .banner-prospects-image {
+
+  .TopBanner_CoffeePLP__image {
     width: 100%;
   }
-  .button-secondary {
-    padding-bottom: 16px;
-    padding-top: 8px;
+  .TopBanner_CoffeePLP__content {
+    width: 90%;
+    margin: 0.5rem auto 0;
+  }
+  .TopBanner_CoffeePLP__cta {
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .banner-prospects {
-    padding: 16px 10px;
+  .TopBanner_CoffeePLP {
+    padding: 1rem 0.625rem;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  .banner-prospects {
-    padding: 10px;
+  .TopBanner_CoffeePLP {
+    padding: 0.625rem;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 768px) {
+  .TopBanner_CoffeePLP__image {
+    width: 30%;
+  }
+  .TopBanner_CoffeePLP__content {
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .banner-prospects {
+  .TopBanner_CoffeePLP {
     height: 100%;
   }
-  .banner-prospects-image {
-    width: 30%;
-  }
-  .text {
-    width: 70%;
+  .TopBanner_CoffeePLP__content {
     display: block;
+    padding-left: 1rem;
   }
-  .banner-prospects-text {
+
+  .TopBanner_CoffeePLP__text {
     width: 100%;
   }
-  .banner-prospects-text p {
-    padding-bottom: 9px;
+  .TopBanner_CoffeePLP__text p {
+    padding-bottom: 8px;
   }
-  .button-secondary {
+  .TopBanner_CoffeePLP__cta {
     width: 100%;
   }
-  .button-secondary-link {
+  .TopBanner_CoffeePLP__cta-link {
     width: 100%;
   }
 }

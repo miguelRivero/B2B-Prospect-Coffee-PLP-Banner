@@ -8,18 +8,12 @@
 // if (process.env.NODE_ENV === 'development') {
 //   require('../index.html');
 // }
-//const styleBanner = `@font-face{font-family:NespressoLucas-Bold;src:url(/shared_res/agility/commons/fonts/NespressoLucas-Bold.woff) format("woff");font-style:normal;font-weight:700}@font-face{font-family:NespressoLucas-XtraBd;src:url(/shared_res/agility/commons/fonts/NespressoLucas-XtraBd.woff) format("woff");font-style:normal;font-weight:800}.banner-prospects{height:128px;max-width:996px;background-color:#f6f4f2;margin:auto;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-image{height:100%;width:25%;display:block;text-align:center;padding-top:16px}.text{width:85%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-text{color:#8f7247;font-family:"Nespresso Lucas";font-size:16px;letter-spacing:2px;line-height:24px;width:50%;margin:auto}.banner-prospects-text h2{color:#8f7247;font-size:16px;letter-spacing:2px;line-height:24px;font-weight:800}.banner-prospects-text p{color:#000;font-family:"Nespresso Lucas";font-size:14px;letter-spacing:1px;line-height:21px}.button-secondary{width:25%;margin:auto;display:inline-block}.button-secondary-link{color:#fff;font-family:"Nespresso Lucas";font-size:14px;font-weight:700;letter-spacing:1px;line-height:1.2em;text-align:center;background-color:#8f7247;position:relative;display:inline-block;text-align:center;border-radius:3px;cursor:pointer;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;text-decoration:none;padding:.8em 2em;min-width:200px;border:1px solid #8f7247}@media screen and (max-width:764px){.banner-prospects{height:100%;padding:10px}.banner-prospects-image{width:30%}.text{width:70%;display:block}.banner-prospects-text{width:100%}.banner-prospects-text p{padding-bottom:9px}.button-secondary{width:100%}.button-secondary-link{width:100%}}`;
+//const styleBanner = `@font-face{font-family:NespressoLucas-Bold;src:url(/shared_res/agility/commons/fonts/NespressoLucas-Bold.woff) format("woff");font-style:normal;font-weight:700}@font-face{font-family:NespressoLucas-XtraBd;src:url(/shared_res/agility/commons/fonts/NespressoLucas-XtraBd.woff) format("woff");font-style:normal;font-weight:800}.banner-prospects{height:128px;max-width:996px;background-color:#f6f4f2;margin:auto;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}.TopBanner_CoffeePLP__image{height:100%;width:25%;display:block;text-align:center;padding-top:16px}.text{width:85%;display:-webkit-box;display:-ms-flexbox;display:flex}.TopBanner_CoffeePLP__text{color:#8f7247;font-family:"Nespresso Lucas";font-size:16px;letter-spacing:2px;line-height:24px;width:50%;margin:auto}.TopBanner_CoffeePLP__text h2{color:#8f7247;font-size:16px;letter-spacing:2px;line-height:24px;font-weight:800}.TopBanner_CoffeePLP__text p{color:#000;font-family:"Nespresso Lucas";font-size:14px;letter-spacing:1px;line-height:21px}.TopBanner_CoffeePLP__cta{width:25%;margin:auto;display:inline-block}.TopBanner_CoffeePLP__cta-link{color:#fff;font-family:"Nespresso Lucas";font-size:14px;font-weight:700;letter-spacing:1px;line-height:1.2em;text-align:center;background-color:#8f7247;position:relative;display:inline-block;text-align:center;border-radius:3px;cursor:pointer;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;text-decoration:none;padding:.8em 2em;min-width:200px;border:1px solid #8f7247}@media screen and (max-width:764px){.banner-prospects{height:100%;padding:10px}.TopBanner_CoffeePLP__image{width:30%}.text{width:70%;display:block}.TopBanner_CoffeePLP__text{width:100%}.TopBanner_CoffeePLP__text p{padding-bottom:9px}.TopBanner_CoffeePLP__cta{width:100%}.TopBanner_CoffeePLP__cta-link{width:100%}}`;
 new casperEventHub.Experience("Prospects Banner Pro Member")
   .visitorIs({
     status: "anonymous",
   })
   .executeOnMatch(function (data) {
-    // const styleBanner = `@font-face{font-family:NespressoLucas-Bold;src:url(/shared_res/agility/commons/fonts/NespressoLucas-Bold.woff) format("woff");font-style:normal;font-weight:700}@font-face{font-family:NespressoLucas-XtraBd;src:url(/shared_res/agility/commons/fonts/NespressoLucas-XtraBd.woff) format("woff");font-style:normal;font-weight:800}.banner-prospects{height:128px;max-width:996px;background-color:#f6f4f2;margin:auto;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-image{height:100%;width:20%;display:block;text-align:center;padding-top:16px}.text{width:90%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-text{color:#8f7247;font-family:"Nespresso Lucas";font-size:16px;letter-spacing:2px;line-height:24px;width:60%;margin:auto}.banner-prospects-text h2{color:#8f7247;font-size:16px;letter-spacing:2px;line-height:21px;font-weight:800}.banner-prospects-text p{color:#000;font-family:"Nespresso Lucas";font-size:14px;letter-spacing:1px;line-height:20px}.button-secondary{width:25%;margin:auto;display:inline-block}.button-secondary-link{color:#fff;font-family:"Nespresso Lucas";font-size:14px;font-weight:700;letter-spacing:1px;line-height:1.2em;text-align:center;background-color:#8f7247;position:relative;display:inline-block;text-align:center;border-radius:3px;cursor:pointer;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;text-decoration:none;padding:.8em 2em;min-width:200px;border:1px solid #8f7247}@media screen and (max-width:764px){.banner-prospects{height:100%;padding:10px}.banner-prospects-image{width:30%}.text{width:70%;display:block}.banner-prospects-text{width:100%}.banner-prospects-text p{padding-bottom:9px}.button-secondary{width:100%}.button-secondary-link{width:100%}}`;
-    // const style = document.createElement("style");
-    // //Appending StyleSheet
-    // style.innerHTML = styleBanner;
-    // document.head.appendChild(style);
-
     //Check if there's a PromotionBanner and if so, hide it.
     let documentObserver = new MutationObserver(function (mutations) {
       //console.log("banner not found yet");
@@ -40,6 +34,22 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
       characterData: false,
       subtree: true,
     });
+
+    //Tracking click event
+    // function promoClick(id, name, creative, position) {
+    //   console.log(id, name, creative, position);
+    //   gtmDataObject.push({
+    //     event: "promoClick",
+    //     currencyCode: "{EUR}", // app.currency
+    //     ecommerce: {
+    //       promoClick: {
+    //         promotions: [
+    //           { name: name, id: id, creative: creative, position: position },
+    //         ],
+    //       },
+    //     },
+    //   });
+    // }
 
     //Getting country and lang data
     const getMarket = () => {
@@ -62,6 +72,11 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
     };
     const _market = getMarket();
     const _lang = getLang();
+    // const _image =
+    //   "/shared_res/mos/free_html/b2b/pdp_banner_coffee/img/Momento_120_3quarts_Left_Latte_OTG_L.png";
+    const _image =
+      "https://www.nespresso.com/ecom/medias/sys_master/public/12410833567774/responsive-pdp-main-2000-2000-momento-100.png?impolicy=product&amp;imwidth=125";
+    const _link = "/pro/au/en/order/machines/pro";
 
     //Apending HTML
     const mainEl = document.getElementById("main");
@@ -72,17 +87,17 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
     mainEl.prepend(bannerContainer);
     bannerContainer.innerHTML = `
       <h2 class="VisuallyHidden">Promotional Banners</h2>
-      <div class="banner-prospects">
-        <div class="banner-prospects-image">
-            <img src="/shared_res/mos/free_html/b2b/pdp_banner_coffee/img/Momento_120_3quarts_Left_Latte_OTG_L.png"></img>
+      <div class="TopBanner_CoffeePLP">
+        <div class="TopBanner_CoffeePLP__image">
+            <img src="${_image}"></img>
         </div>
-        <div class="text">
-            <div class="banner-prospects-text">
+        <div class="TopBanner_CoffeePLP__content">
+            <div class="TopBanner_CoffeePLP__text">
                 <h2>${bannerContent.heading[_lang]}</h2>
                 <p>${bannerContent.subtext[_lang]}</p>
             </div>
-            <div class="button-secondary">
-                <a id="banner-prospects-button" class="button-secondary-link" href="/pro/au/en/order/machines/pro ">
+            <div class="TopBanner_CoffeePLP__cta">
+                <a id="banner-prospects-button" class="TopBanner_CoffeePLP__cta-link" href="${_link}">
                   <i aria-hidden="true"></i>
                   ${bannerContent.cta[_lang]}
                 </a>
@@ -92,11 +107,33 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
       `;
 
     //Click event
-    // document
-    //   .getElementById("banner-prospects-button")
-    //   .addEventListener("click", function () {
-    //     //console.log("clicked");
-    //   });
+    document
+      .getElementById("banner-prospects-button")
+      .addEventListener("click", function () {
+        //console.log("clicked");
+        gtmDataObject.push({
+          event: "promoClick",
+          currencyCode: "{EUR}", // app.currency
+          ecommerce: {
+            promoClick: {
+              promotions: [
+                {
+                  name: "B2B_ProspectJourney",
+                  id: "B2B_ProspectJourney",
+                  creative: "B2B_Prospect_CoffeePLP",
+                  position: "TopBanner_CoffeePLP",
+                },
+              ],
+            },
+          },
+        });
+        // promoClick(
+        //   "B2B_ProspectJourney",
+        //   "B2B_ProspectJourney",
+        //   "B2B_Prospect_CoffeePLP",
+        //   "TopBanner_CoffeePLP"
+        // );
+      });
 
     data.unsubscribe();
   })
