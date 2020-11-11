@@ -4,8 +4,8 @@ import "core-js/es/map";
 
 new casperEventHub.Experience("Prospects Homepage Banner")
   .visitorIs({
-    // status: "anonymous",
-    status: "not-logged-in",
+    status: "anonymous",
+    // status: "not-logged-in",
   })
   .executeOnMismatch(function (data) {
     console.log("mis");
