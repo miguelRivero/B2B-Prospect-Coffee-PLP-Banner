@@ -4,7 +4,7 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/es-check-action@1.0.2
+      - uses: ali-kamalizade/es-check-action@1.0.2
         with:
           directory: "dist"
           ecmaVersion: "es5"
