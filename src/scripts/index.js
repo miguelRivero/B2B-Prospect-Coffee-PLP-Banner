@@ -1,25 +1,17 @@
-//import "../styles/fonts.scss";
-//import "../styles/index.scss";
+import "core-js/es/object/create";
+import "core-js/es/array/fill";
+import "core-js/es/map";
 
-// import * as data from "./translation_en.json";
-// const word = data.name;
-// console.log(word); // output 'testing'
-
-// if (process.env.NODE_ENV === 'development') {
-//   require('../index.html');
-// }
-//const styleBanner = `@font-face{font-family:NespressoLucas-Bold;src:url(/shared_res/agility/commons/fonts/NespressoLucas-Bold.woff) format("woff");font-style:normal;font-weight:700}@font-face{font-family:NespressoLucas-XtraBd;src:url(/shared_res/agility/commons/fonts/NespressoLucas-XtraBd.woff) format("woff");font-style:normal;font-weight:800}.banner-prospects{height:128px;max-width:996px;background-color:#f6f4f2;margin:auto;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-image{height:100%;width:25%;display:block;text-align:center;padding-top:16px}.text{width:85%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-text{color:#8f7247;font-family:"Nespresso Lucas";font-size:16px;letter-spacing:2px;line-height:24px;width:50%;margin:auto}.banner-prospects-text h2{color:#8f7247;font-size:16px;letter-spacing:2px;line-height:24px;font-weight:800}.banner-prospects-text p{color:#000;font-family:"Nespresso Lucas";font-size:14px;letter-spacing:1px;line-height:21px}.button-secondary{width:25%;margin:auto;display:inline-block}.button-secondary-link{color:#fff;font-family:"Nespresso Lucas";font-size:14px;font-weight:700;letter-spacing:1px;line-height:1.2em;text-align:center;background-color:#8f7247;position:relative;display:inline-block;text-align:center;border-radius:3px;cursor:pointer;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;text-decoration:none;padding:.8em 2em;min-width:200px;border:1px solid #8f7247}@media screen and (max-width:764px){.banner-prospects{height:100%;padding:10px}.banner-prospects-image{width:30%}.text{width:70%;display:block}.banner-prospects-text{width:100%}.banner-prospects-text p{padding-bottom:9px}.button-secondary{width:100%}.button-secondary-link{width:100%}}`;
-new casperEventHub.Experience("Prospects Banner Pro Member")
+new casperEventHub.Experience("Prospects Homepage Banner")
   .visitorIs({
-    status: "anonymous",
+    // status: "anonymous",
+    status: "not-logged-in",
+  })
+  .executeOnMismatch(function (data) {
+    console.log("mis");
+    console.log(data);
   })
   .executeOnMatch(function (data) {
-    // const styleBanner = `@font-face{font-family:NespressoLucas-Bold;src:url(/shared_res/agility/commons/fonts/NespressoLucas-Bold.woff) format("woff");font-style:normal;font-weight:700}@font-face{font-family:NespressoLucas-XtraBd;src:url(/shared_res/agility/commons/fonts/NespressoLucas-XtraBd.woff) format("woff");font-style:normal;font-weight:800}.banner-prospects{height:128px;max-width:996px;background-color:#f6f4f2;margin:auto;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-image{height:100%;width:20%;display:block;text-align:center;padding-top:16px}.text{width:90%;display:-webkit-box;display:-ms-flexbox;display:flex}.banner-prospects-text{color:#8f7247;font-family:"Nespresso Lucas";font-size:16px;letter-spacing:2px;line-height:24px;width:60%;margin:auto}.banner-prospects-text h2{color:#8f7247;font-size:16px;letter-spacing:2px;line-height:21px;font-weight:800}.banner-prospects-text p{color:#000;font-family:"Nespresso Lucas";font-size:14px;letter-spacing:1px;line-height:20px}.button-secondary{width:25%;margin:auto;display:inline-block}.button-secondary-link{color:#fff;font-family:"Nespresso Lucas";font-size:14px;font-weight:700;letter-spacing:1px;line-height:1.2em;text-align:center;background-color:#8f7247;position:relative;display:inline-block;text-align:center;border-radius:3px;cursor:pointer;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;text-decoration:none;padding:.8em 2em;min-width:200px;border:1px solid #8f7247}@media screen and (max-width:764px){.banner-prospects{height:100%;padding:10px}.banner-prospects-image{width:30%}.text{width:70%;display:block}.banner-prospects-text{width:100%}.banner-prospects-text p{padding-bottom:9px}.button-secondary{width:100%}.button-secondary-link{width:100%}}`;
-    // const style = document.createElement("style");
-    // //Appending StyleSheet
-    // style.innerHTML = styleBanner;
-    // document.head.appendChild(style);
-
     //Check if there's a PromotionBanner and if so, hide it.
     let documentObserver = new MutationObserver(function (mutations) {
       //console.log("banner not found yet");
@@ -40,6 +32,27 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
       characterData: false,
       subtree: true,
     });
+
+    const getWindowWidth = () => {
+      if (typeof window.innerWidth == "number") {
+        return window.innerWidth;
+      } else {
+        if (
+          document.documentElement &&
+          (document.documentElement.clientWidth ||
+            document.documentElement.clientHeight)
+        ) {
+          return document.documentElement.clientWidth;
+        } else {
+          if (
+            document.body &&
+            (document.body.clientWidth || document.body.clientHeight)
+          ) {
+            return document.body.clientWidth;
+          }
+        }
+      }
+    };
 
     //Getting country and lang data
     const getMarket = () => {
@@ -62,65 +75,144 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
     };
     const _market = getMarket();
     const _lang = getLang();
+    let width = getWindowWidth();
+    console.log(width);
 
     //Apending HTML
+    const bannerContent = window.ProspectsHomeBannerCopy[_market];
     const mainEl = document.getElementById("main");
     const bannerContainer = document.createElement("div");
-    const bannerContent = window.CoffeePLPBannerCopy[_market];
-
-    bannerContainer.classList.add("PromotionBanner", "ProspectsBanner");
+    const assetsUrl =
+      "/shared_res/mos/free_html/b2b/prospects_journey/Sticky_Banner/img/";
+    bannerContainer.classList.add("prospects-homepage-banner");
     mainEl.prepend(bannerContainer);
     bannerContainer.innerHTML = `
-      <h2 class="VisuallyHidden">Promotional Banners</h2>
-      <div class="banner-prospects">
-        <div class="banner-prospects-image">
-            <img src="/shared_res/mos/free_html/b2b/pdp_banner_coffee/img/Momento_120_3quarts_Left_Latte_OTG_L.png"></img>
-        </div>
-        <div class="text">
-            <div class="banner-prospects-text">
-                <h2>${bannerContent.heading[_lang]}</h2>
-                <p>${bannerContent.subtext[_lang]}</p>
+      <div class="stickybanner__container" style="bottom: 0px">
+        <div class="stickybanner__ribbon">
+          <div class="stickybanner__plus overflow">
+            <i class="gg-math-plus"></i>
+          </div>
+          <div class="stickybanner__ribbon_content">
+            <div class="stickybanner__ribbon_content_left" style="">
+              <!-- <img src="${assetsUrl}left-image_L.png" /> -->
+              <picture class="stickybanner__ribbon_capsules">
+                <source
+                  srcset="${assetsUrl}left-image_XL.png 2x, ${assetsUrl}left-image_L.png"
+                  media="(min-width: 769px)"/>
+                <img
+                  srcset="${assetsUrl}left-image_L.png 2x"
+                  src="${assetsUrl}left-image_S.png"
+                  alt="Nespresso Coffee Capsules"/>
+              </picture>
             </div>
-            <div class="button-secondary">
-                <a id="banner-prospects-button" class="button-secondary-link" href="/pro/au/en/order/machines/pro ">
-                  <i aria-hidden="true"></i>
-                  ${bannerContent.cta[_lang]}
+            <div class="stickybanner__ribbon_content_text">
+              <div class="stickybanner__title">${bannerContent.heading[_lang]}</div>
+              <div class="stickybanner__ribbon_tagline" style="">
+                ${bannerContent.subheading[_lang]}
+                <i class="gg-chevron-right"></i>
+              </div>
+            </div>
+            <div class="stickybanner__ribbon_content_right" style="">
+              <!-- <img src="${assetsUrl}right-image_L.png" /> -->
+              <picture class="stickybanner__ribbon_capsules">
+                <source
+                  srcset="${assetsUrl}right-image_XL.png 2x, ${assetsUrl}right-image_L.png"
+                  media="(min-width: 769px)"/>
+                <img
+                  srcset="${assetsUrl}right-image_L.png 2x"
+                  src="${assetsUrl}right-image_S.png"
+                  alt="Nespresso Coffee Capsules"/>
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="stickybanner__content" id="expandable" style="display: none">
+          <div class="stickybanner__ribbon_description">
+            ${bannerContent.text[_lang]}
+          </div>
+          <div class="stickybanner__content_rules">
+            <div class="stickybanner__content_wrapper">
+              <!-- <img src="${assetsUrl}zenius_machine_L.png" /> -->
+              <picture class="stickybanner__ribbon_capsules">
+                <source
+                  srcset="${assetsUrl}zenius_machine_XL.png 2x, ${assetsUrl}zenius_machine_L.png"
+                  media="(min-width: 769px)"/>
+                <img
+                  srcset="${assetsUrl}zenius_machine_L.png 2x"
+                  src="${assetsUrl}zenius_machine_S.png"
+                  alt="Nespresso Coffee Capsules"/>
+              </picture>
+              <div class="stickybanner__content_title">
+                <p class="stickybanner__content_question">
+                  ${bannerContent.question1[_lang]}
+                </p>
+                <p class="stickybanner__content_answer">
+                  ${bannerContent.answer1[_lang]}
+                </p>
+                <a href="/pro/au/en/order/machines/pro">
+                  <div class="stickybanner__content_button">
+                    ${bannerContent.cta1[_lang]}
+                  </div>
                 </a>
+              </div>
             </div>
+            <div class="stickybanner__content_wrapper">
+              <!-- <img src="${assetsUrl}aguila_L.png" /> -->
+              <picture class="stickybanner__ribbon_capsules">
+                <source
+                  srcset="${assetsUrl}aguila_XL.png 2x, ${assetsUrl}aguila_L.png"
+                  media="(min-width: 769px)"/>
+                <img
+                  srcset="${assetsUrl}aguila_L.png 2x"
+                  src="${assetsUrl}aguila_S.png"
+                  alt="Nespresso Coffee Capsules"/>
+              </picture>
+              <div class="stickybanner__content_title">
+                <p class="stickybanner__content_question">
+                  ${bannerContent.question2[_lang]}
+                </p>
+                <p class="stickybanner__content_answer">
+                  ${bannerContent.answer2[_lang]}
+                </p>
+                <a href="/pro/au/en/professional-contactus">
+                  <div class="stickybanner__content_button_contact">
+                    ${bannerContent.cta2[_lang]}
+                  </div>
+                </a>
+                <a href="/pro/au/en/order/machines/pro">
+                  <div class="stickybanner__ribbon_tagline_see_all">
+                    ${bannerContent.cta3[_lang]}
+                    <i class="gg-chevron-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      `;
-
-    //Click event
-    // document
-    //   .getElementById("banner-prospects-button")
-    //   .addEventListener("click", function () {
-    //     //console.log("clicked");
-    //   });
-
+      </div>  
+      `; //Click event for animation
+    const ribbon = document.querySelector(".stickybanner__ribbon");
+    ribbon.onclick = () => {
+      var result = $(ribbon).parent().toggleClass("opened");
+      if (result.hasClass("opened")) {
+        $(".stickybanner__ribbon_content_left").fadeOut();
+        $(".stickybanner__ribbon_content_right").fadeOut();
+        $(".stickybanner__ribbon_tagline").fadeOut("fast");
+        setTimeout(function () {
+          $(".stickybanner__plus").removeClass("overflow");
+          $(ribbon).parent().addClass("scrollable");
+        }, 50);
+      } else {
+        $(".stickybanner__ribbon_content_left").delay(400).fadeIn();
+        $(".stickybanner__ribbon_content_right").delay(400).fadeIn();
+        $(".stickybanner__ribbon_tagline").delay(200).fadeIn();
+        setTimeout(function () {
+          $(".stickybanner__plus").addClass("overflow");
+          $(ribbon).parent().removeClass("scrollable");
+        }, 50);
+      }
+      $(ribbon).siblings().slideToggle("slow");
+    };
     data.unsubscribe();
   })
-  // .executeOnMismatch(function (data) {
-  //   console.log("mismatch");
-  //   console.log(data);
-  // })
   .evaluate();
-
-// function getMarket() {
-//   return config.defaults.addressCountry;
-// }
-
-// function getLang() {
-//   if (!window.config) {
-//     console.log("AB - window.config not found");
-//   }
-//   const ns = window.config.padl.namespace;
-//   if (!ns) {
-//     console.log("AB - padl.namespace not found");
-//   }
-//   const dataLayer = window[ns].dataLayer;
-//   if (!dataLayer) {
-//     console.log("AB - window[ns].dataLayer not found");
-//   }
-//   return window[ns].dataLayer.page.page.pageInfo.language;
-// }

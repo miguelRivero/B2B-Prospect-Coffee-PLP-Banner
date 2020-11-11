@@ -55,6 +55,7 @@ module.exports = (env) => {
     //     "./src/styles/main.scss",
     //   ],
     // },
+    devtool: "source-map",
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].js",
@@ -69,7 +70,21 @@ module.exports = (env) => {
           use: {
             loader: "babel-loader",
             options: {
-              presets: ["@babel/preset-env"],
+              presets: [
+                [
+                  "@babel/preset-env",
+                  {
+                    targets: "ie 11",
+                    loose: true,
+                    useBuiltIns: "entry",
+                    corejs: 3,
+                  },
+                ],
+              ],
+              plugins: [
+                ["transform-remove-console", { exclude: ["error", "warn"] }],
+                "transform-async-to-promises",
+              ],
             },
           },
         },
@@ -83,7 +98,12 @@ module.exports = (env) => {
                 // Creates `style` nodes from JS strings
                 //"style-loader",
                 // Translates CSS into CommonJS
-                "css-loader",
+                {
+                  loader: "css-loader",
+                  options: {
+                    url: false,
+                  },
+                },
                 // Compiles Sass to CSS
                 "sass-loader",
               ]
