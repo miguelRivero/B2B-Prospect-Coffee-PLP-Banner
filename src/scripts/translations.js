@@ -7,16 +7,22 @@ window.ProspectsHomeBannerCopy = {
       en: `How to proceed?`,
     },
     text: {
-      en: `To order coffee online, your business will need to own a <br/> <b>Nespresso</b> Professional commercial coffee machine.`,
+      en: `To order coffee online, your business will need to own a <strong>Nespresso</strong> Professional commercial coffee machine.`,
     },
     question1: {
-      en: `HAVE A SMALL BUSINESS OR SMALL SPACE?`,
+      en: `Have a small business or small space?`,
+    },
+    answer1: {
+      en: `The compact and stylist Zenius is available to purchase online. Recommended for 5-20 coffee lovers.`,
     },
     question2: {
-      en: `HAVE A BIGGER TEAM OR LARGER BUSINESS?`,
+      en: `Have a bigger team or larger business?`,
+    },
+    answer2: {
+      en: `To make sure you get the best coffee solution for your business, one of our experts will help you through the selection process.`,
     },
     cta1: { en: `DISCOVER ZENIUS` },
     cta2: { en: `CONTACT US` },
-    cta3: { en: `See all machines?` },
+    cta3: { en: `See more machines` },
   },
 };
