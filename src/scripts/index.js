@@ -4,8 +4,8 @@ import "core-js/es/map";
 
 new casperEventHub.Experience("Prospects Homepage Banner")
   .visitorIs({
-    status: "anonymous",
-    // status: "not-logged-in",
+    //status: "anonymous",
+    status: "not-logged-in",
   })
   .executeOnMismatch(function (data) {
     console.log("mis");
@@ -15,7 +15,7 @@ new casperEventHub.Experience("Prospects Homepage Banner")
     //Check if there's a PromotionBanner and if so, hide it.
     let documentObserver = new MutationObserver(function (mutations) {
       //console.log("banner not found yet");
-      if (document.contains(document.querySelector(".PromotionBanner"))) {
+      if (document.body.contains(document.querySelector(".PromotionBanner"))) {
         document.querySelectorAll(".PromotionBanner").forEach((el) => {
           if (!el.classList.contains("ProspectsBanner")) {
             el.classList.add("VisuallyHidden");
@@ -33,26 +33,26 @@ new casperEventHub.Experience("Prospects Homepage Banner")
       subtree: true,
     });
 
-    const getWindowWidth = () => {
-      if (typeof window.innerWidth == "number") {
-        return window.innerWidth;
-      } else {
-        if (
-          document.documentElement &&
-          (document.documentElement.clientWidth ||
-            document.documentElement.clientHeight)
-        ) {
-          return document.documentElement.clientWidth;
-        } else {
-          if (
-            document.body &&
-            (document.body.clientWidth || document.body.clientHeight)
-          ) {
-            return document.body.clientWidth;
-          }
-        }
-      }
-    };
+    // const getWindowWidth = () => {
+    //   if (typeof window.innerWidth == "number") {
+    //     return window.innerWidth;
+    //   } else {
+    //     if (
+    //       document.documentElement &&
+    //       (document.documentElement.clientWidth ||
+    //         document.documentElement.clientHeight)
+    //     ) {
+    //       return document.documentElement.clientWidth;
+    //     } else {
+    //       if (
+    //         document.body &&
+    //         (document.body.clientWidth || document.body.clientHeight)
+    //       ) {
+    //         return document.body.clientWidth;
+    //       }
+    //     }
+    //   }
+    // };
 
     //Getting country and lang data
     const getMarket = () => {
@@ -75,8 +75,7 @@ new casperEventHub.Experience("Prospects Homepage Banner")
     };
     const _market = getMarket();
     const _lang = getLang();
-    let width = getWindowWidth();
-    console.log(width);
+    //let width = getWindowWidth();
 
     //Apending HTML
     const bannerContent = window.ProspectsHomeBannerCopy[_market];
@@ -146,9 +145,6 @@ new casperEventHub.Experience("Prospects Homepage Banner")
                 <p class="stickybanner__content_question">
                   ${bannerContent.question1[_lang]}
                 </p>
-                <p class="stickybanner__content_answer">
-                  ${bannerContent.answer1[_lang]}
-                </p>
                 <a href="/pro/au/en/order/machines/pro">
                   <div class="stickybanner__content_button">
                     ${bannerContent.cta1[_lang]}
@@ -170,9 +166,6 @@ new casperEventHub.Experience("Prospects Homepage Banner")
               <div class="stickybanner__content_title">
                 <p class="stickybanner__content_question">
                   ${bannerContent.question2[_lang]}
-                </p>
-                <p class="stickybanner__content_answer">
-                  ${bannerContent.answer2[_lang]}
                 </p>
                 <a href="/pro/au/en/professional-contactus">
                   <div class="stickybanner__content_button_contact">
