@@ -1,12 +1,13 @@
 {
-  "name": "webpack-starter",
+  "name": "casper-project-template",
   "version": "1.0.0",
   "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
     "dev": "webpack-dev-server -d --hot --https --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.js --mode production",
     "prod": "webpack --env.production --config webpack.config.js --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "es-check": "es-check es5 ./dist/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -33,10 +34,13 @@
     "@babel/preset-env": "^7.11.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.1.1",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
+    "es-check": "^5.1.2",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
     "file-loader": "^6.1.0",
