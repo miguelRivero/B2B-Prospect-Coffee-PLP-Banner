@@ -1,11 +1,11 @@
 window.CoffeePLPBannerCopy = {
   au: {
     heading: {
-      en: `Does your business have a <strong>Nespresso</strong> Professional account online?`,
+      en: `Not a <strong>Nespresso</strong> Professional Member?`,
     },
     subtext: {
-      en: `To place a coffee order, your business will need to own a <strong>Nespresso</strong> Professional commercial coffee machine, and have an online account.`,
+      en: `Before placing a coffee order, you should become an owner of a <strong>Nespresso</strong> Professional coffee machine.`,
     },
-    cta: { en: `EXPLORE OUR COMMERCIAL MACHINES` },
+    cta: { en: `SEE ALL MACHINES` },
   },
 };

@@ -17,7 +17,7 @@ new casperEventHub.Experience("Prospects Banner Pro Member")
     //Check if there's a PromotionBanner and if so, hide it.
     let documentObserver = new MutationObserver(function (mutations) {
       //console.log("banner not found yet");
-      if (document.contains(document.querySelector(".PromotionBanner"))) {
+      if (document.body.contains(document.querySelector(".PromotionBanner"))) {
         document.querySelectorAll(".PromotionBanner").forEach((el) => {
           if (!el.classList.contains("ProspectsBanner")) {
             el.classList.add("VisuallyHidden");
