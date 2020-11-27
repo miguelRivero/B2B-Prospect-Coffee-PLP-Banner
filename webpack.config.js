@@ -1,5 +1,6 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -21,19 +22,19 @@ module.exports = (env) => {
     },
     entry: env.production
       ? {
-          Translations: ["./src/scripts/translations.js"],
+          Translations: ["./src/data/translations.js"],
           Styles: ["./src/styles/index.scss"],
           ProspectBannerCode: ["./src/scripts/index.js"],
         }
       : {
           ProspectBannerCode: [
-            "./src/scripts/translations.js",
+            "./src/data/translations.js",
             "./src/scripts/index.js",
             "./src/styles/index.scss",
           ],
         },
     // entry: [
-    //   "./src/scripts/translations.js",
+    //   "./src/data/translations.js",
     //   "./src/scripts/index.js",
     //   "./src/styles/index.scss",
     // ],
@@ -127,8 +128,11 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: "styles.css",
       }),
-      //new CopyPlugin([{ from: "src/assets", to: "public" }]),
+      new MinifyPlugin(),
       new CleanWebpackPlugin(),
+      new CopyPlugin({
+        patterns: [{ from: "src/data", to: "data" }],
+      }),
     ],
   };
 };
